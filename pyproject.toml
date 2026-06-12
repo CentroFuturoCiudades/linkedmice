@@ -1,0 +1,42 @@
+[project]
+name = "linkedmice"
+version = "0.1.0"
+description = "Survey-weighted two-table MICE imputation for linked household-person data with structural-skip handling"
+readme = "README.md"
+authors = [{ name = "Gonzalo Peraza", email = "ggperaza@gmail.com" }]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+dependencies = [
+    "lightgbm>=4.6",
+    "numpy>=2.0",
+    "pandas>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/CentroFuturoCiudades/linkedmice"
+Repository = "https://github.com/CentroFuturoCiudades/linkedmice"
+Issues = "https://github.com/CentroFuturoCiudades/linkedmice/issues"
+
+[project.optional-dependencies]
+catboost = ["catboost>=1.2.10"]
+xgboost = ["xgboost>=3.2.0"]
+all = ["catboost>=1.2.10", "xgboost>=3.2.0"]
+# Worked example: Mexico Census 2020 imputation (scripts/, notebooks/, docs/ reports).
+census = [
+    "mxcensus>=0.1.0",
+    "pyarrow>=18.0",
+    "ipykernel>=6.29",
+    "jupyter>=1.1.1",
+]
+dev = ["pytest>=8.0"]
+
+[tool.uv.sources]
+mxcensus = { git = "https://github.com/CentroFuturoCiudades/mxcensus" }
+
+[build-system]
+requires = ["uv_build>=0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true

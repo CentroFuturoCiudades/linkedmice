@@ -1,0 +1,15 @@
+---
+title: "linkedmice"
+subtitle: "Survey-weighted two-table MICE imputation for linked household–person data"
+---
+
+`linkedmice` jointly imputes categorical variables across two linked tables — a
+*household* table and a *person* table joined by a household key — using
+gradient-boosted tree models (LightGBM by default) weighted by survey expansion
+factors. It distinguishes item non-response (`NaN`, imputed) from structural
+skips (a sentinel category, frozen and excluded from training), and refreshes
+cross-table features between imputation blocks each iteration.
+
+See the [design and usage guide](docs/imputer.md) and the worked example —
+imputing the Mexico Census 2020 extended questionnaire (Jalisco) — under
+`scripts/`, with validation reports in [docs/](docs/full_run_report.qmd).
